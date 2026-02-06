@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloud DevOps Portal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #0f172a;
+            color: #e2e8f0;
+            line-height: 1.6;
+            min-height: 100vh;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(30, 64, 175, 0.15) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(124, 58, 237, 0.15) 0%, transparent 20%);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid #334155;
+            margin-bottom: 40px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 24px;
+            font-weight: 700;
+            color: #60a5fa;
+        }
+        
+        .logo i {
+            font-size: 28px;
+            color: #3b82f6;
+        }
+        
+        nav a {
+            color: #cbd5e1;
+            text-decoration: none;
+            margin-left: 24px;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+        
+        nav a:hover {
+            color: #60a5fa;
+        }
+        
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+            margin-bottom: 60px;
+            background: rgba(30, 41, 59, 0.5);
+            border-radius: 16px;
+            border: 1px solid #334155;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: #f8fafc;
+            background: linear-gradient(90deg, #60a5fa, #a78bfa);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            color: #cbd5e1;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            color: white;
+            padding: 14px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: none;
+            cursor: pointer;
+            margin: 10px;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
+        }
+        
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .service-card {
+            background: rgba(30, 41, 59, 0.7);
+            border-radius: 12px;
+            padding: 30px;
+            border: 1px solid #334155;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: #60a5fa;
+        }
+        
+        .service-icon {
+            font-size: 40px;
+            color: #60a5fa;
+            margin-bottom: 20px;
+        }
+        
+        .service-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: #f8fafc;
+        }
+        
+        .service-card p {
+            color: #cbd5e1;
+            margin-bottom: 20px;
+        }
+        
+        .cloud-stats {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin: 60px 0;
+            padding: 40px;
+            background: rgba(15, 23, 42, 0.8);
+            border-radius: 16px;
+            border: 1px solid #334155;
+        }
+        
+        .stat {
+            text-align: center;
+            padding: 20px;
+            min-width: 200px;
+        }
+        
+        .stat-value {
+            font-size: 48px;
+            font-weight: 700;
+            color: #60a5fa;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            color: #cbd5e1;
+            font-size: 18px;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid #334155;
+            margin-top: 40px;
+            color: #94a3b8;
+        }
+        
+        .footer-links {
+            margin-top: 20px;
+        }
+        
+        .footer-links a {
+            color: #60a5fa;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+        
+        .code-block {
+            background: #1e293b;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 4px solid #3b82f6;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+        }
+        
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            nav a {
+                margin: 0 10px;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .cloud-stats {
+                padding: 20px;
+            }
+            
+            .stat {
+                min-width: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <i class="fas fa-cloud"></i>
+                <span>CloudOps</span>
+            </div>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="#services">Services</a>
+                <a href="#stats">Stats</a>
+                <a href="error.html" style="color: #f87171;">Test Error Page</a>
+            </nav>
+        </header>
+        
+        <main>
+            <section class="hero">
+                <h1>Cloud & DevOps Solutions</h1>
+                <p>Streamline your development pipeline with our automated cloud infrastructure and CI/CD solutions. Scale seamlessly with containerization and infrastructure as code.</p>
+                <a href="#services" class="cta-button">Explore Services</a>
+                <a href="error.html" class="cta-button" style="background: linear-gradient(90deg, #ef4444, #f97316);">Test Error Page</a>
+            </section>
+            
+            <section id="services" class="services">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h3>Cloud Infrastructure</h3>
+                    <p>Automated provisioning of cloud resources using Terraform and CloudFormation. Infrastructure as code for reproducible environments.</p>
+                    <div class="code-block">
+                        $ terraform apply<br>
+                        # Creating cloud resources...
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-code-branch"></i>
+                    </div>
+                    <h3>CI/CD Pipelines</h3>
+                    <p>Automated build, test, and deployment pipelines with Jenkins, GitLab CI, and GitHub Actions for faster delivery cycles.</p>
+                    <div class="code-block">
+                        pipeline {<br>
+                        &nbsp;&nbsp;agent any<br>
+                        &nbsp;&nbsp;stages {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;stage('Build') { ... }<br>
+                        &nbsp;&nbsp;}<br>
+                        }
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-box"></i>
+                    </div>
+                    <h3>Containerization</h3>
+                    <p>Docker container orchestration with Kubernetes for scalable, resilient microservices architecture across hybrid cloud environments.</p>
+                    <div class="code-block">
+                        $ kubectl get pods<br>
+                        NAME&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;READY&nbsp;&nbsp;STATUS<br>
+                        app-pod&nbsp;&nbsp;&nbsp;&nbsp;1/1&nbsp;&nbsp;&nbsp;&nbsp;Running
+                    </div>
+                </div>
+            </section>
+            
+            <section id="stats" class="cloud-stats">
+                <div class="stat">
+                    <div class="stat-value">99.9%</div>
+                    <div class="stat-label">Uptime SLA</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">2.5x</div>
+                    <div class="stat-label">Faster Deployment</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">50%</div>
+                    <div class="stat-label">Cost Reduction</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">24/7</div>
+                    <div class="stat-label">Monitoring</div>
+                </div>
+            </section>
+        </main>
+        
+        <footer>
+            <p>Cloud DevOps Portal &copy; 2023. All deployment environments secured.</p>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="error.html">Error Page</a>
+                <a href="#services">Services</a>
+                <a href="#stats">Statistics</a>
+            </div>
+        </footer>
+    </div>
+    
+    <script>
+        // Simple script for interactive elements
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add click effects to service cards
+            const cards = document.querySelectorAll('.service-card');
+            cards.forEach(card => {
+                card.addEventListener('click', function() {
+                    this.style.transform = 'scale(0.98)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 200);
+                });
+            });
+            
+            // Animate stats on scroll
+            const stats = document.querySelectorAll('.stat-value');
+            const observerOptions = {
+                threshold: 0.5
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+            
+            stats.forEach(stat => {
+                stat.style.opacity = '0';
+                stat.style.transform = 'translateY(20px)';
+                stat.style.transition = 'opacity 0.5s, transform 0.5s';
+                observer.observe(stat);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+# =========================
+# Terraform files
+# =========================
+
+# Terraform working directory
+.terraform/
+
+# Terraform state files (DO NOT COMMIT)
+terraform.tfstate
+terraform.tfstate.backup
+*.tfstate
+*.tfstate.backup
+
+# Terraform crash logs
+crash.log
+crash.*.log
+
+# Terraform lock file (OPTIONAL)
+# Uncomment the next line if you do NOT want to track it
+# .terraform.lock.hcl
+
+# =========================
+# Sensitive variable files
+# =========================
+
+# Terraform variable files that may contain secrets
+*.tfvars
+*.tfvars.json
+
+# =========================
+# OS / Editor files
+# =========================
+
+# Windows
+Thumbs.db
+desktop.ini
+
+# macOS
+.DS_Store
+
+# Linux
+*~
+
+# VS Code
+.vscode/
+
+# =========================
+# Logs
+# =========================
+*.log
