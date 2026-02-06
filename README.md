@@ -56,8 +56,9 @@ S3_STATIC_WEB_TERRAFORM/
 ## Deployment Instructions
 
 ### Initialize Terraform
-
+```bash
 terraform init
+```
 
 ### Review the Execution Plan
 ```bash
